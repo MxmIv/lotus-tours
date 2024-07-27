@@ -14,7 +14,8 @@ export default function Home({ tours }) {
                 <h1>Welcome to Vietnam Tours</h1>
             </div>
             <div className="description">
-                <p>Description of the company</p>
+                <p>Откройте для себя Вьетнам вместе с Lotus Tour: уникальные направления, увлекательные экскурсии и незабываемые впечатления. Мы работаем с опытными гидами и организовываем комфортные поездки, подходящие для всех возрастов. Выберите нас, и максимально насладитесь каждым моментом вашего путешествия.
+                </p>
             </div>
             <TourGrid tours={tours} />
             <Footer />

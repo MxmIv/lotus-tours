@@ -1,12 +1,15 @@
 import Link from 'next/link';
+import Carousel from './Carousel';
 
 export default function TourCard({ tour }) {
     return (
         <div className="tour-card">
-            <img src={tour.frontmatter.image} alt={tour.frontmatter.title} />
+            <Carousel images={tour.frontmatter.images} />
             <h2>{tour.frontmatter.title}</h2>
             <p>{tour.frontmatter.description}</p>
-            <Link href={`/tours/${tour.slug}`}>Learn More</Link>
+            <Link href={`/tours/${tour.slug}`} legacyBehavior>
+                <a>Learn More</a>
+            </Link>
         </div>
     );
 }

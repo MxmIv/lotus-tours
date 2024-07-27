@@ -21,7 +21,7 @@ export default function TourPage({ frontmatter, content }) {
 }
 
 export async function getStaticPaths() {
-    const files = fs.readdirSync(path.join('markdown/tours'));
+    const files = fs.readdirSync(path.join('content/tours'));
     const paths = files.map(filename => ({
         params: {
             slug: filename.replace('.md', '')
@@ -36,7 +36,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
     const markdownWithMeta = fs.readFileSync(
-        path.join('markdown/tours', slug + '.md'),
+        path.join('content/tours', slug + '.md'),
         'utf-8'
     );
 

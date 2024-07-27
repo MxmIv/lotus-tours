@@ -23,10 +23,14 @@ export default function Home({ tours }) {
 }
 
 export async function getStaticProps() {
-    const files = fs.readdirSync(path.join('markdown/tours'));
-    const tours = files.map(filename => {
+    const files = fs.readdirSync(path.join('content/tours'));
+
+    const tours = files.filter((filename) => {
+        const filepath = path.join('content/tours', filename);
+        return fs.statSync(filepath).isFile() && filename.endsWith('.md');
+    }).map(filename => {
         const markdownWithMeta = fs.readFileSync(
-            path.join('markdown/tours', filename),
+            path.join('content/tours', filename),
             'utf-8'
         );
         const { data: frontmatter } = matter(markdownWithMeta);

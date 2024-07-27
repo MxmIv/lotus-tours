@@ -8,7 +8,7 @@ import matter from 'gray-matter';
 export default function Home({ tours }) {
     return (
         <>
-            <Header />
+            <Header tours={tours} />
             <div className="hero">
                 <img src="/backgrounds/background3.jpg" alt="Header Image" />
                 <h1>Welcome to Vietnam Tours</h1>

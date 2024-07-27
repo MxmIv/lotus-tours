@@ -8,7 +8,6 @@ export async function onRequest(context) {
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
                     'images/tours/Dalat/2.jpg'
-                    //more
                 ]
             }
         },
@@ -23,7 +22,6 @@ export async function onRequest(context) {
                 ]
             }
         }
-        // Add more tour objects here
     ];
 
     return new Response(JSON.stringify(tours), { headers: { 'Content-Type': 'application/json' } });

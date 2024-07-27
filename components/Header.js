@@ -11,7 +11,8 @@ export default function Header() {
             .then(response => response.json())
             .then(data => {
                 setTours(data);
-            });
+            })
+            .catch(error => console.error('Error fetching tours:', error));
     }, []);
 
     return (

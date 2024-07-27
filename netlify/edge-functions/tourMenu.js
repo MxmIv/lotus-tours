@@ -1,7 +1,11 @@
 export default async function onRequest(context) {
+    const { request } = context;
+    const url = new URL(request.url);
+    const slug = url.searchParams.get('slug');
+
     const tours = [
         {
-            slug: 'tour-1',
+            slug: 'tour1',
             frontmatter: {
                 title: 'Tour 1',
                 images: [
@@ -12,7 +16,7 @@ export default async function onRequest(context) {
             }
         },
         {
-            slug: 'tour-2',
+            slug: 'tour2',
             frontmatter: {
                 title: 'Tour 2',
                 images: [
@@ -23,6 +27,15 @@ export default async function onRequest(context) {
             }
         }
     ];
+
+    if (slug) {
+        const tour = tours.find(t => t.slug === slug);
+        if (tour) {
+            return new Response(JSON.stringify(tour), { headers: { 'Content-Type': 'application/json' } });
+        } else {
+            return new Response('Tour not found', { status: 404 });
+        }
+    }
 
     return new Response(JSON.stringify(tours), { headers: { 'Content-Type': 'application/json' } });
 }

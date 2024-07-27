@@ -7,10 +7,10 @@ import Footer from '../../components/Footer';
 
 const md = new markdownIt();
 
-export default function TourPage({ frontmatter, content }) {
+export default function TourPage({ frontmatter, content, tours }) {
     return (
         <>
-            <Header />
+            <Header tours={tours} />
             <div className="tour-content">
                 <h1>{frontmatter.title}</h1>
                 <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />
@@ -42,10 +42,27 @@ export async function getStaticProps({ params: { slug } }) {
 
     const { data: frontmatter, content } = matter(markdownWithMeta);
 
+    const files = fs.readdirSync(path.join('content/tours'));
+    const tours = files.filter((filename) => {
+        const filepath = path.join('content/tours', filename);
+        return fs.statSync(filepath).isFile() && filename.endsWith('.md');
+    }).map(filename => {
+        const markdownWithMeta = fs.readFileSync(
+            path.join('content/tours', filename),
+            'utf-8'
+        );
+        const { data: frontmatter } = matter(markdownWithMeta);
+        return {
+            frontmatter,
+            slug: filename.split('.')[0]
+        };
+    });
+
     return {
         props: {
             frontmatter,
-            content
-        }
+            content,
+            tours,
+        },
     };
 }

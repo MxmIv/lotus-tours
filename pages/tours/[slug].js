@@ -22,7 +22,7 @@ export default function TourPage({ frontmatter, content, tours }) {
 
 export async function getStaticPaths() {
     const files = fs.readdirSync(path.join('content/tours'));
-    const paths = files.map(filename => ({
+    const paths = files.filter((filename) => filename.endsWith('.md')).map(filename => ({
         params: {
             slug: filename.replace('.md', '')
         }
@@ -43,10 +43,7 @@ export async function getStaticProps({ params: { slug } }) {
     const { data: frontmatter, content } = matter(markdownWithMeta);
 
     const files = fs.readdirSync(path.join('content/tours'));
-    const tours = files.filter((filename) => {
-        const filepath = path.join('content/tours', filename);
-        return fs.statSync(filepath).isFile() && filename.endsWith('.md');
-    }).map(filename => {
+    const tours = files.filter((filename) => filename.endsWith('.md')).map(filename => {
         const markdownWithMeta = fs.readFileSync(
             path.join('content/tours', filename),
             'utf-8'

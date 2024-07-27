@@ -8,11 +8,11 @@ export default function Header() {
 
     useEffect(() => {
         fetch('/api/tours')
-            .then((response) => response.json())
-            .then((data) => {
+            .then(response => response.json())
+            .then(data => {
                 setTours(data);
             })
-            .catch((error) => console.error('Error fetching tours:', error));
+            .catch(error => console.error('Error fetching tours:', error));
     }, []);
 
     return (
@@ -102,7 +102,7 @@ export default function Header() {
                     position: absolute;
                     background-color: #f9f9f9;
                     min-width: 160px;
-                    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+                    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
                     z-index: 1;
                 }
 

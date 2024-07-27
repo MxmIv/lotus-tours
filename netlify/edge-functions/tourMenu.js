@@ -1,7 +1,7 @@
 export default async function onRequest(context) {
-    const { request } = context;
-    const url = new URL(request.url);
-    const slug = url.searchParams.get('slug');
+    const request = context.request;
+    const url = request ? new URL(request.url) : null;
+    const slug = url ? url.searchParams.get('slug') : null;
 
     const tours = [
         {

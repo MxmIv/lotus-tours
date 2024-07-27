@@ -36,7 +36,7 @@ export default function TourPage({ frontmatter, content }) {
 }
 
 export async function getStaticPaths() {
-    const files = fs.readdirSync(path.join('content/tours'));
+    const files = fs.readdirSync(path.join('content/tours')).filter(filename => filename.endsWith('.md'));
 
     const paths = files.map((filename) => ({
         params: {

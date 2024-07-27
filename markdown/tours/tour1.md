@@ -1,7 +1,7 @@
 ---
-title: "Tour 1"
-description: "Description of Tour 1"
-image: "/path/to/tour1/image.jpg"
+title: "Majestic Popa"
+description: "Описание самое лучшее в жизни"
+image: "/backgrounds/vodolaz.jpg"
 ---
 
 Details about Tour 1...

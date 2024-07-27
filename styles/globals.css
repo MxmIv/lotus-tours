@@ -168,7 +168,8 @@ body {
 
 .carousel img {
   width: 100%;
-  height: auto;
+  height: 200px; /* Set a fixed height for the images */
+  object-fit: cover; /* Cover the area, cropping if necessary */
   border-radius: 10px;
 }
 

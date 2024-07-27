@@ -22,41 +22,6 @@ export default function Carousel({ images }) {
                 <button onClick={handlePrev}>&lt;</button>
                 <button onClick={handleNext}>&gt;</button>
             </div>
-            <style jsx>{`
-                .carousel {
-                    position: relative;
-                    width: 100%;
-                    max-width: 300px;
-                    margin: 0 auto;
-                }
-
-                .carousel img {
-                    width: 100%;
-                    height: auto;
-                    border-radius: 10px;
-                }
-
-                .carousel-controls {
-                    position: absolute;
-                    top: 50%;
-                    width: 100%;
-                    display: flex;
-                    justify-content: space-between;
-                    transform: translateY(-50%);
-                }
-
-                .carousel-controls button {
-                    background: rgba(0, 0, 0, 0.5);
-                    border: none;
-                    color: white;
-                    padding: 10px;
-                    cursor: pointer;
-                }
-
-                .carousel-controls button:hover {
-                    background: rgba(0, 0, 0, 0.8);
-                }
-            `}</style>
         </div>
     );
 }

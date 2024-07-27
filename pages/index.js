@@ -10,7 +10,7 @@ export default function Home({ tours }) {
         <>
             <Header />
             <div className="hero">
-                <img src="/path/to/your/header/image.jpg" alt="Header Image" />
+                <img src="/backgrounds/background3.jpg" alt="Header Image" />
                 <h1>Welcome to Vietnam Tours</h1>
             </div>
             <div className="description">

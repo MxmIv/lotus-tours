@@ -1,23 +1,44 @@
-import Head from 'next/head'
-import Header from '@components/Header'
-import Footer from '@components/Footer'
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import TourGrid from '../components/TourGrid';
+import fs from 'fs';
+import path from 'path';
+import matter from 'gray-matter';
 
-export default function Home() {
-  return (
-    <div className="container">
-      <Head>
-        <title>Next.js Starter!</title>
-        <link rel="icon" href="/favicon.ico" />
-      </Head>
+export default function Home({ tours }) {
+    return (
+        <>
+            <Header />
+            <div className="hero">
+                <img src="/path/to/your/header/image.jpg" alt="Header Image" />
+                <h1>Welcome to Vietnam Tours</h1>
+            </div>
+            <div className="description">
+                <p>Description of the company</p>
+            </div>
+            <TourGrid tours={tours} />
+            <Footer />
+        </>
+    );
+}
 
-      <main>
-        <Header title="Welcome to my app!" />
-        <p className="description">
-          Get started by editing <code>pages/index.js</code>
-        </p>
-      </main>
+export async function getStaticProps() {
+    const files = fs.readdirSync(path.join('markdown/tours'));
+    const tours = files.map(filename => {
+        const markdownWithMeta = fs.readFileSync(
+            path.join('markdown/tours', filename),
+            'utf-8'
+        );
+        const { data: frontmatter } = matter(markdownWithMeta);
+        return {
+            frontmatter,
+            slug: filename.split('.')[0]
+        };
+    });
 
-      <Footer />
-    </div>
-  )
+    return {
+        props: {
+            tours,
+        },
+    };
 }

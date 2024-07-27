@@ -29,8 +29,8 @@ export default function Header() {
                     <Link href="/" legacyBehavior>
                         <a className="nav-link">Home</a>
                     </Link>
-                    <div className="dropdown">
-                        <button className="dropbtn" onMouseEnter={() => setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}>
+                    <div className="dropdown" onMouseEnter={() => setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}>
+                        <button className="dropbtn">
                             Tours
                         </button>
                         {dropdownVisible && (

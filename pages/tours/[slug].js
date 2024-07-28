@@ -30,7 +30,9 @@ export default function TourPage({ frontmatter, content }) {
                 </div>
             </div>
             <div className="tour-buttons">
-                <button onClick={() => setShowIncluded(!showIncluded)}>Что входит в стоимость</button>
+                <button className="expand-button" onClick={() => setShowIncluded(!showIncluded)}>
+                    Что входит в стоимость <span className="plus-icon">{showIncluded ? '-' : '+'}</span>
+                </button>
                 {showIncluded && (
                     <div className="included-details">
                         <h3>Что входит в стоимость:</h3>
@@ -41,7 +43,9 @@ export default function TourPage({ frontmatter, content }) {
                         </ul>
                     </div>
                 )}
-                <button onClick={() => setShowMore(!showMore)}>Подробнее о туре</button>
+                <button className="expand-button" onClick={() => setShowMore(!showMore)}>
+                    Подробнее о туре <span className="plus-icon">{showMore ? '-' : '+'}</span>
+                </button>
                 {showMore && <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />}
             </div>
             <Footer />
@@ -85,20 +89,28 @@ export default function TourPage({ frontmatter, content }) {
           text-align: center;
           margin: 20px 0;
         }
-        .tour-buttons button {
+        .expand-button {
           background-color: #0070f3;
           color: white;
           border: none;
-          padding: 10px 20px;
+          padding: 15px 20px;
           font-size: 1rem;
           border-radius: 5px;
           cursor: pointer;
-          margin: 10px;
+          width: 100%;
+          max-width: 800px;
+          margin: 10px auto;
+          display: flex;
+          justify-content: space-between;
+          align-items: center;
         }
-        .tour-buttons button:hover {
+        .expand-button:hover {
           background-color: #005bb5;
         }
-        .included-details {
+        .plus-icon {
+          font-size: 1.5rem;
+        }
+        .included-details, .tour-more div {
           margin-top: 20px;
           text-align: left;
           max-width: 800px;

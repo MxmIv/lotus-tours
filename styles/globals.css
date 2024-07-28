@@ -31,12 +31,12 @@ body {
 .nav {
   display: flex;
   align-items: center;
-  gap: 20px; /* Ensures equal spacing between nav links */
 }
 
 .nav-link {
   color: #FFCD00; /* New Yellow text */
   text-decoration: none;
+  margin-right: 20px;
   font-weight: bold;
   padding: 10px; /* Add padding to match the dropdown button */
   border-radius: 5px; /* Add border-radius for smoother transition */
@@ -148,12 +148,6 @@ body {
 
 .tour-card p {
   padding: 0 10px;
-}
-
-.tour-card .price {
-  font-size: 1.2rem;
-  color: #C8102E; /* Red color for price */
-  margin: 10px 0;
 }
 
 .tour-card a {

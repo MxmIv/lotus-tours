@@ -2,7 +2,7 @@
 title: "Tour 1"
 description: "Description of Tour 1"
 duration: "1 день, с 8:20"
-price: "45$ за человека"
+price: " от 45$ за человека"
 included: "Item 1\n- Item 2\n- Item 3"
 whatToBring: "Item A\n- Item B\n- Item C"
 images:

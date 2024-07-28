@@ -6,7 +6,6 @@ import markdownIt from 'markdown-it';
 import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
-import Image from 'next/image';
 
 const md = new markdownIt();
 
@@ -38,15 +37,6 @@ export default function TourPage({ frontmatter, content }) {
             <div className="tour-details">
                 <div className="grey-box">
                     <h2>Программа и стоимость</h2>
-                    <Image
-                        src={`/${frontmatter.images[1]}`}
-                        alt={`${frontmatter.title} Image`}
-                        width={800}
-                        height={400}
-                        layout="responsive"
-                        objectFit="cover"
-                        className="tour-image"
-                    />
                     <p><strong>Длительность:</strong> {frontmatter.duration}</p>
                     <p><strong>Описание:</strong> {frontmatter.description}</p>
                     <p><strong>Стоимость:</strong> {frontmatter.price}</p>

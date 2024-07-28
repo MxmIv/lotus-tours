@@ -10,6 +10,7 @@ const md = new markdownIt();
 
 export default function TourPage({ frontmatter, content }) {
     const [showMore, setShowMore] = useState(false);
+    const [showIncluded, setShowIncluded] = useState(false);
 
     return (
         <>
@@ -28,7 +29,18 @@ export default function TourPage({ frontmatter, content }) {
                     <p><strong>Стоимость:</strong> {frontmatter.price}</p>
                 </div>
             </div>
-            <div className="tour-more">
+            <div className="tour-buttons">
+                <button onClick={() => setShowIncluded(!showIncluded)}>Что входит в стоимость</button>
+                {showIncluded && (
+                    <div className="included-details">
+                        <h3>Что входит в стоимость:</h3>
+                        <ul>
+                            {frontmatter.included.split('\n').filter(Boolean).map((item, index) => (
+                                <li key={index}>{item.replace('-', '').trim()}</li>
+                            ))}
+                        </ul>
+                    </div>
+                )}
                 <button onClick={() => setShowMore(!showMore)}>Подробнее о туре</button>
                 {showMore && <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />}
             </div>
@@ -69,11 +81,11 @@ export default function TourPage({ frontmatter, content }) {
           width: 100%;
           text-align: center;
         }
-        .tour-more {
+        .tour-buttons {
           text-align: center;
           margin: 20px 0;
         }
-        .tour-more button {
+        .tour-buttons button {
           background-color: #0070f3;
           color: white;
           border: none;
@@ -81,15 +93,20 @@ export default function TourPage({ frontmatter, content }) {
           font-size: 1rem;
           border-radius: 5px;
           cursor: pointer;
+          margin: 10px;
         }
-        .tour-more button:hover {
+        .tour-buttons button:hover {
           background-color: #005bb5;
         }
-        .tour-more div {
+        .included-details {
           margin-top: 20px;
           text-align: left;
           max-width: 800px;
           margin: 0 auto;
+        }
+        .included-details ul {
+          list-style-type: disc;
+          padding-left: 20px;
         }
       `}</style>
         </>

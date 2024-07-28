@@ -17,8 +17,8 @@ export default function TourGrid({ tours }) {
             <style jsx>{`
                 .tour-grid {
                     display: grid;
-                    grid-template-columns: repeat(3, 1fr);
-                    gap: 10px; /* Reduce gap between tours */
+                    grid-template-columns: repeat(3, 1fr); /* Fixed 3 columns */
+                    gap: 20px;
                     padding: 20px;
                 }
 
@@ -59,12 +59,6 @@ export default function TourGrid({ tours }) {
                 .tour-card a:hover {
                     background: #C8102E; /* New Red background on hover */
                     color: #FFCD00; /* New Yellow text on hover */
-                }
-
-                @media (max-width: 900px) {
-                    .tour-grid {
-                        grid-template-columns: repeat(2, 1fr); /* Two columns on medium screens */
-                    }
                 }
 
                 @media (max-width: 600px) {

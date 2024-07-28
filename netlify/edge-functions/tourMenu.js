@@ -25,6 +25,50 @@ export default async function onRequest(context) {
                     'images/tours/Dalat/2.jpg'
                 ]
             }
+        },
+        {
+            slug: 'tour3',
+            frontmatter: {
+                title: 'Tour 3',
+                images: [
+                    'images/tours/Dalat/Main.jpg',
+                    'images/tours/Dalat/1.jpg',
+                    'images/tours/Dalat/2.jpg'
+                ]
+            }
+        },
+        {
+            slug: 'tour4',
+            frontmatter: {
+                title: 'Tour 4',
+                images: [
+                    'images/tours/Dalat/Main.jpg',
+                    'images/tours/Dalat/1.jpg',
+                    'images/tours/Dalat/2.jpg'
+                ]
+            }
+        },
+        {
+            slug: 'tour5',
+            frontmatter: {
+                title: 'Tour 5',
+                images: [
+                    'images/tours/Dalat/Main.jpg',
+                    'images/tours/Dalat/1.jpg',
+                    'images/tours/Dalat/2.jpg'
+                ]
+            }
+        },
+        {
+            slug: 'tour6',
+            frontmatter: {
+                title: 'Tour 6',
+                images: [
+                    'images/tours/Dalat/Main.jpg',
+                    'images/tours/Dalat/1.jpg',
+                    'images/tours/Dalat/2.jpg'
+                ]
+            }
         }
     ];
 

@@ -4,6 +4,7 @@ import { useState, useEffect } from 'react';
 
 export default function Header() {
     const [dropdownVisible, setDropdownVisible] = useState(false);
+    const [menuVisible, setMenuVisible] = useState(false);
     const [tours, setTours] = useState([]);
 
     useEffect(() => {
@@ -15,6 +16,22 @@ export default function Header() {
             .catch(error => console.error('Error fetching tours:', error));
     }, []);
 
+    useEffect(() => {
+        const handleResize = () => {
+            if (window.innerWidth > 768) {
+                setMenuVisible(false);
+            }
+        };
+        window.addEventListener('resize', handleResize);
+        return () => {
+            window.removeEventListener('resize', handleResize);
+        };
+    }, []);
+
+    const handleMenuToggle = () => {
+        setMenuVisible(!menuVisible);
+    };
+
     return (
         <header className="header">
             <div className="header-container">
@@ -25,9 +42,12 @@ export default function Header() {
                         </a>
                     </Link>
                 </div>
-                <nav className="nav">
+                <button className="burger-menu" onClick={handleMenuToggle}>
+                    ☰
+                </button>
+                <nav className={`nav ${menuVisible ? 'visible' : ''}`}>
                     <Link href="/" legacyBehavior>
-                        <a className="nav-link">Home</a>
+                        <a className="nav-link" onClick={handleMenuToggle}>Home</a>
                     </Link>
                     <div className="dropdown" onMouseEnter={() => setDropdownVisible(true)} onMouseLeave={() => setDropdownVisible(false)}>
                         <button className="dropbtn">Tours</button>
@@ -35,14 +55,14 @@ export default function Header() {
                             <div className="dropdown-content">
                                 {tours.map((tour, index) => (
                                     <Link key={index} href={`/tours/${tour.slug}`} legacyBehavior>
-                                        <a>{tour.frontmatter.title}</a>
+                                        <a onClick={handleMenuToggle}>{tour.frontmatter.title}</a>
                                     </Link>
                                 ))}
                             </div>
                         )}
                     </div>
                     <Link href="/contact" legacyBehavior>
-                        <a className="nav-link">Contact</a>
+                        <a className="nav-link" onClick={handleMenuToggle}>Contact</a>
                     </Link>
                 </nav>
             </div>

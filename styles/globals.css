@@ -12,6 +12,8 @@ body {
   background-color: #003087; /* New Blue background */
   color: #FFCD00; /* New Yellow text */
   padding: 10px 0;
+  z-index: 10; /* Ensure the header is above other elements */
+  position: relative;
 }
 
 .header-container {
@@ -45,6 +47,7 @@ body {
   padding: 20px;
   border-radius: 5px;
   box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  z-index: 9; /* Ensure the nav is below the header but above other content */
 }
 
 .nav-link {
@@ -81,7 +84,7 @@ body {
   background-color: #f9f9f9;
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
-  z-index: 1;
+  z-index: 9; /* Ensure the dropdown is above other content */
 }
 
 .dropdown-content a {
@@ -107,6 +110,7 @@ body {
   position: relative;
   text-align: center;
   color: #FFCD00; /* New Yellow text */
+  z-index: 1; /* Ensure the hero image is below the header */
 }
 
 .hero img {
@@ -143,7 +147,7 @@ body {
 .tour-card {
   background: #fff;
   border-radius: 10px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 2px 4px rgba(0,0,0,0.1);
   overflow: hidden;
   text-align: center;
   margin: 10px;
@@ -336,6 +340,7 @@ body {
     padding: 20px;
     border-radius: 5px;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+    z-index: 9;
   }
 
   .burger-menu {

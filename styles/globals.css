@@ -38,11 +38,13 @@ body {
   text-decoration: none;
   margin-right: 20px;
   font-weight: bold;
+  padding: 10px; /* Add padding to match the dropdown button */
+  border-radius: 5px; /* Add border-radius for smoother transition */
 }
 
 .nav-link:hover {
-  color: #C8102E; /* New Red text on hover */
-  text-decoration: underline;
+  background-color: #C8102E; /* New Red background on hover */
+  color: #FFCD00; /* Maintain yellow text on hover */
 }
 
 .dropdown {
@@ -57,6 +59,7 @@ body {
   cursor: pointer;
   padding: 10px;
   font-size: 16px;
+  border-radius: 5px; /* Add border-radius for smoother transition */
 }
 
 .dropdown-content {

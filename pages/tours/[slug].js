@@ -1,8 +1,9 @@
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
 import markdownIt from 'markdown-it';
+import { useRouter } from 'next/router';
 import Header from '../../components/Header';
 import Footer from '../../components/Footer';
 
@@ -11,6 +12,13 @@ const md = new markdownIt();
 export default function TourPage({ frontmatter, content }) {
     const [showMore, setShowMore] = useState(false);
     const [showIncluded, setShowIncluded] = useState(false);
+    const router = useRouter();
+
+    // Reset the state when the slug changes
+    useEffect(() => {
+        setShowMore(false);
+        setShowIncluded(false);
+    }, [router.query.slug]);
 
     return (
         <>

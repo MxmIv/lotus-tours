@@ -22,9 +22,10 @@ export default function TourPage({ frontmatter, content }) {
             </div>
             <div className="tour-details">
                 <div className="grey-box">
-                    <h2>{frontmatter.title}</h2>
-                    <p>{frontmatter.description}</p>
-                    <p><strong>Price:</strong> {frontmatter.price}</p>
+                    <h2>Программа и стоимость</h2>
+                    <p><strong>Длительность:</strong> {frontmatter.duration}</p>
+                    <p><strong>Описание:</strong> {frontmatter.description}</p>
+                    <p><strong>Стоимость:</strong> {frontmatter.price}</p>
                 </div>
             </div>
             <div className="tour-more">
@@ -64,7 +65,8 @@ export default function TourPage({ frontmatter, content }) {
           padding: 20px;
           border-radius: 10px;
           box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-          max-width: 500px;
+          max-width: 800px;
+          width: 100%;
           text-align: center;
         }
         .tour-more {

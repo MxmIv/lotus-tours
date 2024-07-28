@@ -8,8 +8,9 @@ export default async function onRequest(context) {
             slug: 'tour1',
             frontmatter: {
                 title: 'Tour 1',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 1',
-                price: '$100',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -21,8 +22,9 @@ export default async function onRequest(context) {
             slug: 'tour2',
             frontmatter: {
                 title: 'Tour 2',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 2',
-                price: '$200',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -34,8 +36,9 @@ export default async function onRequest(context) {
             slug: 'tour3',
             frontmatter: {
                 title: 'Tour 3',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 3',
-                price: '$300',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -47,8 +50,9 @@ export default async function onRequest(context) {
             slug: 'tour4',
             frontmatter: {
                 title: 'Tour 4',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 4',
-                price: '$400',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -60,8 +64,9 @@ export default async function onRequest(context) {
             slug: 'tour5',
             frontmatter: {
                 title: 'Tour 5',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 5',
-                price: '$500',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -73,8 +78,9 @@ export default async function onRequest(context) {
             slug: 'tour6',
             frontmatter: {
                 title: 'Tour 6',
+                duration: '1 день, с 8:20',
                 description: 'Description of Tour 6',
-                price: '$600',
+                price: '45$ за человека',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',

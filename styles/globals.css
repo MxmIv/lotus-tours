@@ -9,8 +9,8 @@ body {
 }
 
 .header {
-  background-color: #0000FF; /* Blue background */
-  color: #FFD700; /* Yellow text */
+  background-color: #003087; /* New Blue background */
+  color: #FFCD00; /* New Yellow text */
   padding: 10px 0;
 }
 
@@ -34,14 +34,14 @@ body {
 }
 
 .nav-link {
-  color: #FFD700; /* Yellow text */
+  color: #FFCD00; /* New Yellow text */
   text-decoration: none;
   margin-right: 20px;
   font-weight: bold;
 }
 
 .nav-link:hover {
-  color: #FF0000; /* Red text on hover */
+  color: #C8102E; /* New Red text on hover */
   text-decoration: underline;
 }
 
@@ -51,8 +51,8 @@ body {
 }
 
 .dropbtn {
-  background-color: #0000FF; /* Blue background */
-  color: #FFD700; /* Yellow text */
+  background-color: #003087; /* New Blue background */
+  color: #FFCD00; /* New Yellow text */
   border: none;
   cursor: pointer;
   padding: 10px;
@@ -84,7 +84,7 @@ body {
 }
 
 .dropdown:hover .dropbtn {
-  background-color: #FF0000; /* Red background on hover */
+  background-color: #C8102E; /* New Red background on hover */
 }
 
 .hero {
@@ -152,16 +152,16 @@ body {
   display: inline-block;
   margin: 10px;
   padding: 10px 20px;
-  background: #FFD700; /* Yellow background */
+  background: #FFCD00; /* New Yellow background */
   color: #000000; /* Black text */
   text-decoration: none;
   border-radius: 5px;
-  border: 2px solid #FF0000; /* Red border */
+  border: 2px solid #C8102E; /* New Red border */
 }
 
 .tour-card a:hover {
-  background: #FF0000; /* Red background on hover */
-  color: #FFD700; /* Yellow text on hover */
+  background: #C8102E; /* New Red background on hover */
+  color: #FFCD00; /* New Yellow text on hover */
 }
 
 .carousel {

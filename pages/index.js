@@ -1,9 +1,9 @@
-import Header from '../components/Header';
-import Footer from '../components/Footer';
-import TourGrid from '../components/TourGrid';
 import fs from 'fs';
 import path from 'path';
 import matter from 'gray-matter';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import TourGrid from '../components/TourGrid';
 
 export default function Home({ tours }) {
     return (

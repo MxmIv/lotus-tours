@@ -98,9 +98,9 @@ export default function TourPage({ frontmatter, content }) {
           margin: 20px 0;
         }
         .expand-button {
-          background-color: #0070f3;
-          color: white;
-          border: none;
+          background-color: #FFD700;
+          color: #0000FF;
+          border: 2px solid #FF0000;
           padding: 15px 20px;
           font-size: 1rem;
           border-radius: 5px;
@@ -111,9 +111,11 @@ export default function TourPage({ frontmatter, content }) {
           display: flex;
           justify-content: space-between;
           align-items: center;
+          transition: background-color 0.3s, color 0.3s;
         }
         .expand-button:hover {
-          background-color: #005bb5;
+          background-color: #FF0000;
+          color: #FFD700;
         }
         .plus-icon {
           font-size: 1.5rem;

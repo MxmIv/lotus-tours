@@ -8,6 +8,8 @@ export default async function onRequest(context) {
             slug: 'tour1',
             frontmatter: {
                 title: 'Tour 1',
+                description: 'Description of Tour 1',
+                price: '$100',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -19,6 +21,8 @@ export default async function onRequest(context) {
             slug: 'tour2',
             frontmatter: {
                 title: 'Tour 2',
+                description: 'Description of Tour 2',
+                price: '$200',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -30,6 +34,8 @@ export default async function onRequest(context) {
             slug: 'tour3',
             frontmatter: {
                 title: 'Tour 3',
+                description: 'Description of Tour 3',
+                price: '$300',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -41,6 +47,8 @@ export default async function onRequest(context) {
             slug: 'tour4',
             frontmatter: {
                 title: 'Tour 4',
+                description: 'Description of Tour 4',
+                price: '$400',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -52,6 +60,8 @@ export default async function onRequest(context) {
             slug: 'tour5',
             frontmatter: {
                 title: 'Tour 5',
+                description: 'Description of Tour 5',
+                price: '$500',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',
@@ -63,6 +73,8 @@ export default async function onRequest(context) {
             slug: 'tour6',
             frontmatter: {
                 title: 'Tour 6',
+                description: 'Description of Tour 6',
+                price: '$600',
                 images: [
                     'images/tours/Dalat/Main.jpg',
                     'images/tours/Dalat/1.jpg',

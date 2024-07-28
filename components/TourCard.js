@@ -7,8 +7,9 @@ export default function TourCard({ tour }) {
             <Carousel images={tour.frontmatter.images} />
             <h2>{tour.frontmatter.title}</h2>
             <p>{tour.frontmatter.description}</p>
+            <p className="price">{tour.frontmatter.price}</p>
             <Link href={`/tours/${tour.slug}`} legacyBehavior>
-                <a>Learn More</a>
+                <a>Read More</a>
             </Link>
         </div>
     );

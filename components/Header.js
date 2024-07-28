@@ -7,7 +7,7 @@ export default function Header() {
     const [tours, setTours] = useState([]);
 
     useEffect(() => {
-        fetch('/api/tours')
+        fetch('/tours.json')
             .then(response => response.json())
             .then(data => {
                 setTours(data);

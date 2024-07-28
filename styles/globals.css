@@ -9,8 +9,8 @@ body {
 }
 
 .header {
-  background-color: #FFD700; /* Yellow background */
-  color: #000000; /* Black text */
+  background-color: #0000FF; /* Blue background */
+  color: #FFD700; /* Yellow text */
   padding: 10px 0;
 }
 
@@ -34,7 +34,7 @@ body {
 }
 
 .nav-link {
-  color: #000000; /* Black text */
+  color: #FFD700; /* Yellow text */
   text-decoration: none;
   margin-right: 20px;
   font-weight: bold;
@@ -51,8 +51,8 @@ body {
 }
 
 .dropbtn {
-  background-color: #FFD700; /* Yellow background */
-  color: #000000; /* Black text */
+  background-color: #0000FF; /* Blue background */
+  color: #FFD700; /* Yellow text */
   border: none;
   cursor: pointer;
   padding: 10px;

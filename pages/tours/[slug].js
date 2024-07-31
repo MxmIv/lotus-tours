@@ -10,14 +10,14 @@ import Footer from '../../components/Footer';
 const md = new markdownIt();
 
 export default function TourPage({ frontmatter, content }) {
-    const [showIncluded, setShowIncluded] = useState(false);
+    const [showWhatToBring, setShowWhatToBring] = useState(false);
     const [showPhotos, setShowPhotos] = useState(false);
     const [showMoreInfo, setShowMoreInfo] = useState(false);
     const router = useRouter();
 
     // Reset the state when the slug changes
     useEffect(() => {
-        setShowIncluded(false);
+        setShowWhatToBring(false);
         setShowPhotos(false);
         setShowMoreInfo(false);
     }, [router.query.slug]);
@@ -42,14 +42,13 @@ export default function TourPage({ frontmatter, content }) {
                 </div>
             </div>
             <div className="tour-buttons">
-                <button className="expand-button" onClick={() => setShowIncluded(!showIncluded)}>
-                    Что входит в стоимость <span className="plus-icon">{showIncluded ? '-' : '+'}</span>
+                <button className="expand-button" onClick={() => setShowWhatToBring(!showWhatToBring)}>
+                    Советуем взять с собой <span className="plus-icon">{showWhatToBring ? '-' : '+'}</span>
                 </button>
-                {showIncluded && (
+                {showWhatToBring && (
                     <div className="included-details">
-                        <h3>Что входит в стоимость:</h3>
                         <ul>
-                            {frontmatter.included.split('\n').filter(Boolean).map((item, index) => (
+                            {frontmatter.whatToBring.split('\n').filter(Boolean).map((item, index) => (
                                 <li key={index}>{item.replace('-', '').trim()}</li>
                             ))}
                         </ul>

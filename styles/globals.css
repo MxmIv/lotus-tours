@@ -156,6 +156,8 @@ body {
 .tour-card img {
   width: 100%;
   height: auto;
+  object-fit: cover;
+  max-height: 200px; /* Adjust the max-height to almost fill the card width */
 }
 
 .tour-card h2 {
@@ -378,6 +380,7 @@ body {
 
 .footer-container {
   display: flex;
+  flex-direction: column; /* Stack items vertically on mobile */
   justify-content: space-between;
   align-items: center;
   max-width: 1200px;
@@ -387,22 +390,25 @@ body {
 }
 
 .footer-logo {
-  flex: 1;
   display: flex;
   justify-content: center;
+  margin: 10px 0;
+}
+
+.footer-section-left,
+.footer-section-right {
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  margin: 10px 0;
 }
 
 .footer-section-left {
-  flex: 1;
-  text-align: left;
+  justify-content: flex-start;
 }
 
 .footer-section-right {
-  flex: 1;
-  text-align: right;
-  display: flex;
   justify-content: flex-end;
-  gap: 20px;
 }
 
 .footer-bottom {
@@ -449,6 +455,16 @@ body {
 
   .grey-box-content {
     flex-direction: column; /* Stack items vertically on mobile */
+  }
+
+  .footer-container {
+    flex-direction: column; /* Stack items vertically on mobile */
+  }
+
+  .footer-section-left,
+  .footer-section-right {
+    width: 100%;
+    justify-content: center;
   }
 }
 

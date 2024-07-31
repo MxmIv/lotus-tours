@@ -13,6 +13,7 @@ export default function TourPage({ frontmatter, content }) {
     const [showWhatToBring, setShowWhatToBring] = useState(false);
     const [showPhotos, setShowPhotos] = useState(false);
     const [showMoreInfo, setShowMoreInfo] = useState(false);
+    const [showIncluded, setShowIncluded] = useState(false);
     const router = useRouter();
 
     // Reset the state when the slug changes
@@ -20,6 +21,7 @@ export default function TourPage({ frontmatter, content }) {
         setShowWhatToBring(false);
         setShowPhotos(false);
         setShowMoreInfo(false);
+        setShowIncluded(false);
     }, [router.query.slug]);
 
     return (
@@ -53,6 +55,22 @@ export default function TourPage({ frontmatter, content }) {
                             ))}
                         </ul>
                     </div>
+                )}
+                {frontmatter.included && (
+                    <>
+                        <button className="expand-button" onClick={() => setShowIncluded(!showIncluded)}>
+                            В стоимость тура входит <span className="plus-icon">{showIncluded ? '-' : '+'}</span>
+                        </button>
+                        {showIncluded && (
+                            <div className="included-details">
+                                <ul>
+                                    {frontmatter.included.split('\n').filter(Boolean).map((item, index) => (
+                                        <li key={index}>{item.replace('-', '').trim()}</li>
+                                    ))}
+                                </ul>
+                            </div>
+                        )}
+                    </>
                 )}
                 <button className="expand-button" onClick={() => setShowPhotos(!showPhotos)}>
                     Фото с тура <span className="plus-icon">{showPhotos ? '-' : '+'}</span>

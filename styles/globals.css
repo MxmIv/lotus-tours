@@ -349,11 +349,12 @@ body {
   gap: 10px;
   padding: 20px;
   justify-items: center;
+  max-width: 1000px; /* Match the width of the grey box */
+  margin: 0 auto;
 }
 
 .gallery-image {
   width: 100%;
-  max-width: 300px;
   height: auto;
   border-radius: 10px;
   object-fit: cover;

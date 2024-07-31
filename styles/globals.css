@@ -293,6 +293,11 @@ body {
   margin-bottom: 20px;
 }
 
+.program-list {
+  list-style-type: disc;
+  padding-left: 20px;
+}
+
 .tour-buttons {
   text-align: center;
   margin: 20px 0;

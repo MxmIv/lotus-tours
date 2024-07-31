@@ -24,6 +24,12 @@ export default function TourPage({ frontmatter, content }) {
         setShowIncluded(false);
     }, [router.query.slug]);
 
+    const formatList = (text) => {
+        return text.split('\n').filter(Boolean).map((item, index) => (
+            <li key={index}>{item.replace(/•\s*/g, '').trim()}</li>
+        ));
+    };
+
     return (
         <>
             <Header />
@@ -37,7 +43,10 @@ export default function TourPage({ frontmatter, content }) {
                         <div className="tour-text">
                             <h2 className="fancy-font">Программа и стоимость</h2>
                             <p><strong>Длительность:</strong> {frontmatter.duration}</p>
-                            <p><strong>Программа:</strong> {frontmatter.program}</p>
+                            <p><strong>Программа:</strong></p>
+                            <ul className="program-list">
+                                {formatList(frontmatter.program)}
+                            </ul>
                             <p><strong>Стоимость:</strong> {frontmatter.price}</p>
                         </div>
                     </div>
@@ -50,9 +59,7 @@ export default function TourPage({ frontmatter, content }) {
                 {showWhatToBring && (
                     <div className="included-details">
                         <ul>
-                            {frontmatter.whatToBring.split('\n').filter(Boolean).map((item, index) => (
-                                <li key={index}>{item.replace('-', '').trim()}</li>
-                            ))}
+                            {formatList(frontmatter.whatToBring)}
                         </ul>
                     </div>
                 )}
@@ -64,9 +71,7 @@ export default function TourPage({ frontmatter, content }) {
                         {showIncluded && (
                             <div className="included-details">
                                 <ul>
-                                    {frontmatter.included.split('\n').filter(Boolean).map((item, index) => (
-                                        <li key={index}>{item.replace('-', '').trim()}</li>
-                                    ))}
+                                    {formatList(frontmatter.included)}
                                 </ul>
                             </div>
                         )}

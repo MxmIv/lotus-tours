@@ -11,17 +11,15 @@ const md = new markdownIt();
 
 export default function TourPage({ frontmatter, content }) {
     const [showIncluded, setShowIncluded] = useState(false);
-    const [showWhatToBring, setShowWhatToBring] = useState(false);
-    const [showMoreInfo, setShowMoreInfo] = useState(false);
     const [showPhotos, setShowPhotos] = useState(false);
+    const [showMoreInfo, setShowMoreInfo] = useState(false);
     const router = useRouter();
 
     // Reset the state when the slug changes
     useEffect(() => {
         setShowIncluded(false);
-        setShowWhatToBring(false);
-        setShowMoreInfo(false);
         setShowPhotos(false);
+        setShowMoreInfo(false);
     }, [router.query.slug]);
 
     return (
@@ -32,10 +30,10 @@ export default function TourPage({ frontmatter, content }) {
             </div>
             <div className="tour-details">
                 <div className="grey-box">
-                    <h2 className="fancy-font">Программа и стоимость</h2>
                     <div className="grey-box-content">
-                        <img src={`/${frontmatter.images[1]}`} alt="Tour Image" className="tour-image" />
+                        <img className="tour-image" src={`/${frontmatter.images[1]}`} alt="Tour Image" />
                         <div className="tour-text">
+                            <h2 className="fancy-font">Программа и стоимость</h2>
                             <p><strong>Длительность:</strong> {frontmatter.duration}</p>
                             <p><strong>Программа:</strong> {frontmatter.program}</p>
                             <p><strong>Стоимость:</strong> {frontmatter.price}</p>
@@ -57,36 +55,22 @@ export default function TourPage({ frontmatter, content }) {
                         </ul>
                     </div>
                 )}
-                <button className="expand-button" onClick={() => setShowWhatToBring(!showWhatToBring)}>
-                    Что взять с собой? <span className="plus-icon">{showWhatToBring ? '-' : '+'}</span>
+                <button className="expand-button" onClick={() => setShowPhotos(!showPhotos)}>
+                    Фото с тура <span className="plus-icon">{showPhotos ? '-' : '+'}</span>
                 </button>
-                {showWhatToBring && (
-                    <div className="included-details">
-                        <h3>Что взять с собой:</h3>
-                        <ul>
-                            {frontmatter.whatToBring.split('\n').filter(Boolean).map((item, index) => (
-                                <li key={index}>{item.replace('-', '').trim()}</li>
-                            ))}
-                        </ul>
+                {showPhotos && (
+                    <div className="photo-gallery">
+                        {frontmatter.images.slice(1).map((image, index) => (
+                            <img key={index} src={`/${image}`} alt={`Gallery Image ${index}`} className="gallery-image" />
+                        ))}
                     </div>
                 )}
                 <button className="expand-button" onClick={() => setShowMoreInfo(!showMoreInfo)}>
                     Больше информации <span className="plus-icon">{showMoreInfo ? '-' : '+'}</span>
                 </button>
                 {showMoreInfo && (
-                    <div className="included-details">
-                        <h3>Больше информации:</h3>
+                    <div className="more-info">
                         <div dangerouslySetInnerHTML={{ __html: md.render(frontmatter.moreInfo) }} />
-                    </div>
-                )}
-                <button className="expand-button" onClick={() => setShowPhotos(!showPhotos)}>
-                    Фото с тура <span className="plus-icon">{showPhotos ? '-' : '+'}</span>
-                </button>
-                {showPhotos && (
-                    <div className="photo-gallery">
-                        {frontmatter.images.slice(2).map((image, index) => (
-                            <img key={index} src={`/${image}`} alt={`Tour photo ${index + 1}`} className="gallery-image" />
-                        ))}
                     </div>
                 )}
             </div>

@@ -335,6 +335,14 @@ body {
   padding-left: 20px;
 }
 
+.more-info {
+  margin-top: 20px;
+  text-align: left;
+  max-width: 1000px; /* Match the width of the grey box */
+  width: 100%;
+  margin: 0 auto;
+}
+
 .burger-menu {
   display: none;
   background: none;

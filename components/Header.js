@@ -29,7 +29,9 @@ export default function Header() {
     }, []);
 
     const handleMenuToggle = () => {
-        setMenuVisible(!menuVisible);
+        if (window.innerWidth <= 768) {
+            setMenuVisible(!menuVisible);
+        }
     };
 
     return (

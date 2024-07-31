@@ -22,9 +22,6 @@ export default function TourPage({ frontmatter, content }) {
         setShowWhatToBring(false);
     }, [router.query.slug]);
 
-    // Ensure whatToBring is always a string
-    const whatToBring = frontmatter.whatToBring || '';
-
     return (
         <>
             <Header />
@@ -36,10 +33,15 @@ export default function TourPage({ frontmatter, content }) {
             </div>
             <div className="tour-details">
                 <div className="grey-box">
-                    <h2>Программа и стоимость</h2>
-                    <p><strong>Длительность:</strong> {frontmatter.duration}</p>
-                    <p><strong>Описание:</strong> {frontmatter.description}</p>
-                    <p><strong>Стоимость:</strong> {frontmatter.price}</p>
+                    <h2 className="fancy-font">Программа и стоимость</h2>
+                    <div className="grey-box-content">
+                        <img src={`/${frontmatter.images[1]}`} alt="Tour Image" className="tour-image" />
+                        <div className="tour-text">
+                            <p><strong>Длительность:</strong> {frontmatter.duration}</p>
+                            <p><strong>Описание:</strong> {frontmatter.description}</p>
+                            <p><strong>Стоимость:</strong> {frontmatter.price}</p>
+                        </div>
+                    </div>
                 </div>
             </div>
             <div className="tour-buttons">
@@ -63,7 +65,7 @@ export default function TourPage({ frontmatter, content }) {
                     <div className="included-details">
                         <h3>Что взять с собой:</h3>
                         <ul>
-                            {whatToBring.split('\n').filter(Boolean).map((item, index) => (
+                            {frontmatter.whatToBring.split('\n').filter(Boolean).map((item, index) => (
                                 <li key={index}>{item.replace('-', '').trim()}</li>
                             ))}
                         </ul>
@@ -96,7 +98,7 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({ params: { slug } }) {
     const markdownWithMeta = fs.readFileSync(
-        path.join('content/tours', `${slug}.md`),
+        path.join('content/tours', slug + '.md'),
         'utf-8'
     );
 

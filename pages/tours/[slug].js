@@ -13,6 +13,7 @@ export default function TourPage({ frontmatter, content }) {
     const [showIncluded, setShowIncluded] = useState(false);
     const [showWhatToBring, setShowWhatToBring] = useState(false);
     const [showMoreInfo, setShowMoreInfo] = useState(false);
+    const [showPhotos, setShowPhotos] = useState(false);
     const router = useRouter();
 
     // Reset the state when the slug changes
@@ -20,6 +21,7 @@ export default function TourPage({ frontmatter, content }) {
         setShowIncluded(false);
         setShowWhatToBring(false);
         setShowMoreInfo(false);
+        setShowPhotos(false);
     }, [router.query.slug]);
 
     return (
@@ -75,6 +77,16 @@ export default function TourPage({ frontmatter, content }) {
                     <div className="included-details">
                         <h3>Больше информации:</h3>
                         <div dangerouslySetInnerHTML={{ __html: md.render(frontmatter.moreInfo) }} />
+                    </div>
+                )}
+                <button className="expand-button" onClick={() => setShowPhotos(!showPhotos)}>
+                    Фото с тура <span className="plus-icon">{showPhotos ? '-' : '+'}</span>
+                </button>
+                {showPhotos && (
+                    <div className="photo-gallery">
+                        {frontmatter.images.slice(2).map((image, index) => (
+                            <img key={index} src={`/${image}`} alt={`Tour photo ${index + 1}`} className="gallery-image" />
+                        ))}
                     </div>
                 )}
             </div>

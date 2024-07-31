@@ -10,6 +10,15 @@ moreInfo: "Больше информации о туре:\n- Дополните�
 images:
   - "images/tours/Dalat/Main.jpg"
   - "images/tours/Dalat/1.jpg"
+  - "images/tours/Dalat/2.jpg"
+  - "images/tours/Dalat/3.jpg"
+  - "images/tours/Dalat/4.jpg"
+  - "images/tours/Dalat/5.jpg"
+  - "images/tours/Dalat/6.jpg"
+  - "images/tours/Dalat/7.jpg"
+  - "images/tours/Dalat/8.jpg"
+  - "images/tours/Dalat/9.jpg"
+
 ---
 
 Details about Tour 1...

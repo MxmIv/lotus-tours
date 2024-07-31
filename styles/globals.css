@@ -343,6 +343,22 @@ body {
   cursor: pointer;
 }
 
+.photo-gallery {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr); /* 3 columns */
+  gap: 10px;
+  padding: 20px;
+  justify-items: center;
+}
+
+.gallery-image {
+  width: 100%;
+  max-width: 300px;
+  height: auto;
+  border-radius: 10px;
+  object-fit: cover;
+}
+
 @media (max-width: 768px) {
   .nav {
     display: none;
@@ -386,6 +402,9 @@ body {
 
 @media (max-width: 600px) {
   .tour-grid {
+    grid-template-columns: 1fr; /* Single column on mobile */
+  }
+  .photo-gallery {
     grid-template-columns: 1fr; /* Single column on mobile */
   }
 }

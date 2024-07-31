@@ -13,6 +13,7 @@ export default function TourPage({ frontmatter, content }) {
     const [showMore, setShowMore] = useState(false);
     const [showIncluded, setShowIncluded] = useState(false);
     const [showWhatToBring, setShowWhatToBring] = useState(false);
+    const [showMoreInfo, setShowMoreInfo] = useState(false);
     const router = useRouter();
 
     // Reset the state when the slug changes
@@ -20,6 +21,7 @@ export default function TourPage({ frontmatter, content }) {
         setShowMore(false);
         setShowIncluded(false);
         setShowWhatToBring(false);
+        setShowMoreInfo(false);
     }, [router.query.slug]);
 
     return (
@@ -28,9 +30,6 @@ export default function TourPage({ frontmatter, content }) {
             <div className="tour-header" style={{ backgroundImage: `url(/${frontmatter.images[0]})` }}>
                 <h1>{frontmatter.title}</h1>
             </div>
-            <div className="tour-description">
-                <p>{frontmatter.description}</p>
-            </div>
             <div className="tour-details">
                 <div className="grey-box">
                     <h2 className="fancy-font">Программа и стоимость</h2>
@@ -38,7 +37,7 @@ export default function TourPage({ frontmatter, content }) {
                         <img src={`/${frontmatter.images[1]}`} alt="Tour Image" className="tour-image" />
                         <div className="tour-text">
                             <p><strong>Длительность:</strong> {frontmatter.duration}</p>
-                            <p><strong>Описание:</strong> {frontmatter.description}</p>
+                            <p><strong>Программа:</strong> {frontmatter.program}</p>
                             <p><strong>Стоимость:</strong> {frontmatter.price}</p>
                         </div>
                     </div>
@@ -69,6 +68,15 @@ export default function TourPage({ frontmatter, content }) {
                                 <li key={index}>{item.replace('-', '').trim()}</li>
                             ))}
                         </ul>
+                    </div>
+                )}
+                <button className="expand-button" onClick={() => setShowMoreInfo(!showMoreInfo)}>
+                    Больше информации <span className="plus-icon">{showMoreInfo ? '-' : '+'}</span>
+                </button>
+                {showMoreInfo && (
+                    <div className="included-details">
+                        <h3>Больше информации:</h3>
+                        <div dangerouslySetInnerHTML={{ __html: md.render(frontmatter.moreInfo) }} />
                     </div>
                 )}
                 <button className="expand-button" onClick={() => setShowMore(!showMore)}>

@@ -1,14 +1,15 @@
 ---
 title: "Tour 6"
+duration: "1 день"
 description: "Description of Tour 6"
-duration: "1 день, с 8:20"
+program: "Описание тура 1 день"
 price: "45$ за человека"
-included: "Item 1\n- Item 2\n- Item 3"
-whatToBring: "Item A\n- Item B\n- Item C"
+included: "Входит в стоимость:\n- Трансфер\n- Проживание\n- Питание"
+whatToBring: "Что взять с собой:\n- Удобная одежда\n- Обувь для прогулок\n- Фотоаппарат"
+moreInfo: "Больше информации о туре:\n- Дополнительные услуги\n- Опции и условия"
 images:
   - "images/tours/Dalat/Main.jpg"
   - "images/tours/Dalat/1.jpg"
-  - "images/tours/Dalat/2.jpg"
 ---
 
 Details about Tour 6...

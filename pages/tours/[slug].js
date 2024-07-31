@@ -10,7 +10,6 @@ import Footer from '../../components/Footer';
 const md = new markdownIt();
 
 export default function TourPage({ frontmatter, content }) {
-    const [showMore, setShowMore] = useState(false);
     const [showIncluded, setShowIncluded] = useState(false);
     const [showWhatToBring, setShowWhatToBring] = useState(false);
     const [showMoreInfo, setShowMoreInfo] = useState(false);
@@ -18,7 +17,6 @@ export default function TourPage({ frontmatter, content }) {
 
     // Reset the state when the slug changes
     useEffect(() => {
-        setShowMore(false);
         setShowIncluded(false);
         setShowWhatToBring(false);
         setShowMoreInfo(false);
@@ -79,10 +77,6 @@ export default function TourPage({ frontmatter, content }) {
                         <div dangerouslySetInnerHTML={{ __html: md.render(frontmatter.moreInfo) }} />
                     </div>
                 )}
-                <button className="expand-button" onClick={() => setShowMore(!showMore)}>
-                    Подробнее о туре <span className="plus-icon">{showMore ? '-' : '+'}</span>
-                </button>
-                {showMore && <div dangerouslySetInnerHTML={{ __html: md.render(content) }} />}
             </div>
             <Footer />
         </>

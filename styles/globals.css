@@ -305,7 +305,7 @@ body {
   border-radius: 5px;
   cursor: pointer;
   width: 100%;
-  max-width: 800px;
+  max-width: 1000px; /* Match the width of the grey box */
   margin: 10px auto;
   display: flex;
   justify-content: space-between;
